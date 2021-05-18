@@ -4,7 +4,7 @@ from request import Request
 print("main!")
 
 req = Request()
-temperature_list = req.get_temp()
+temperature_list = req.get_temp('москва')
 print(temperature_list)
 for elem in temperature_list:
     print(elem)

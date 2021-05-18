@@ -19,16 +19,20 @@ def with_template():
     user = {'username': 'Miguel'}
     return render_template('index.html', title='home', user=user, count=count)
 
+
 @app.route("/weather")
 def weather():
+    city = request.args.get("city", "москва").lower()
+
     try:
         req = Request()
-        data = req.get_temp()
+        data = req.get_temp(city)
         return render_template('weather.html', title='home',
                                today = data[0],
                                tonight = data[1],
                                tomorrow_day = data[2],
-                               tomorrow_night = data[3])
+                               tomorrow_night = data[3],
+                               city_name=city)
 
     except Exception as e:
         return "Exception (find):" + str(e)

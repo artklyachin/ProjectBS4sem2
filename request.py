@@ -5,8 +5,8 @@ class Request:
     def __init__(self):
         pass
 
-    def get_temp(self):
-        s = requests.get('https://sinoptik.com.ru/погода-москва')
+    def get_temp(self, city_name):
+        s = requests.get('https://sinoptik.com.ru/погода-' + city_name)
         b = bs4.BeautifulSoup(s.text, "html.parser")
         p3 = b.select('.weather__article_main_right-table .table__temp')
         res = []

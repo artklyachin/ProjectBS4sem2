@@ -6,8 +6,13 @@
     </head>
     <body>
         <h1>Привет!</h1>
-        <h2>Узнай погоду в Москве!</h2>
-        <a class="big-text" href="{{ url_for('wether') }}"> реальная погода</a><br>
+        <h2>Узнай погоду!</h2>
+        <form method="get" action="{{ url_for('weather') }}">
+            <label for="city">Город</label>
+            <input type="text" name="city" id="city">
+            <input type="submit" value="Узнать погоду">
+        </form>
+       <!-- <a class="big-text" href="{{ url_for('weather') }}"> реальная погода</a><br> -->
 
     </body>
 </html>
